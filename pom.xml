@@ -11,7 +11,7 @@
 
     <name>xlsx-generator</name>
     <description>A Java library for generating XLSX files</description>
-    <url>https://github.com/andriishutka/xlsx-generator</url>
+    <url>https://github.com/andryshutka/xlsx-generator</url>
 
     <licenses>
         <license>
@@ -23,16 +23,16 @@
 
     <developers>
         <developer>
-            <id>andriishutka</id>
-            <name>Andrii Shutka</name>
-            <email>andriishutka@example.com</email>
+            <id>andryshutka</id>
+            <name>Andry Shutka</name>
+            <email>andrshutka.as@gmail.com</email>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/andriishutka/xlsx-generator.git</connection>
-        <developerConnection>scm:git:ssh://github.com/andriishutka/xlsx-generator.git</developerConnection>
-        <url>https://github.com/andriishutka/xlsx-generator/tree/main</url>
+        <connection>scm:git:git://github.com/andryshutka/xlsx-generator.git</connection>
+        <developerConnection>scm:git:ssh://github.com/andryshutka/xlsx-generator.git</developerConnection>
+        <url>https://github.com/andryshutka/xlsx-generator/tree/main</url>
     </scm>
 
     <properties>
