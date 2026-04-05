@@ -1,3 +1,5 @@
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.andryshutka/xlsx-generator.svg?label=Maven%20Central&color=blue)](https://central.sonatype.com/artifact/io.github.andryshutka/xlsx-generator)
+
 # xlsx-generator
 
 A lightweight Java library for generating XLSX files using Apache POI
