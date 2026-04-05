@@ -41,7 +41,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.IntStream;
 
 import static io.github.andryshutka.xlsx.XlsxConstants.ARIAL_FONT_NAME;
@@ -149,7 +148,6 @@ public class XlsxGeneratorHelper {
     if (dataInput.getValues() == null || dataInput.getValues().isEmpty()) {
       return;
     }
-    renderSummary(dataInput);
     Row startRow = getOrCreateRow(dataInput.getSheet(), dataInput.getRowPos());
     List<ReportHeader> headers = getHeadersFromData(dataInput);
     int headersSize = headers.size();
@@ -181,41 +179,7 @@ public class XlsxGeneratorHelper {
     adjustSheet(dataInput.getSheet(), headers, startRow);
   }
 
-  private void renderSummary(XlsxDataInput input) {
-    int row = input.getRowPos() - 1;
-    if (row >= 0 && input.getValues() != null && !input.getValues().isEmpty()) {
-      Field[] declaredFields = input.getValues().get(0).getClass().getDeclaredFields();
 
-      List<Field> fields = Arrays.stream(declaredFields)
-          .filter(field -> field.isAnnotationPresent(Header.class))
-          .toList();
-
-      for (int i = 0; i < fields.size(); i++) {
-        Field field = fields.get(i);
-        if (field.getAnnotation(Header.class).renderSummary()) {
-          Row formulaRow = getOrCreateRow(input.getSheet(), row);
-          Cell cell = getOrCreateCell(formulaRow, i);
-          styleRow(input.getSheet(), formulaRow);
-          int dataStart = row + 3;
-          String columnAlpha = getColumnAlpha(i);
-          new XlsxCellStyleHelper(cell).withDefaultFont();
-          String valueToAdd = (input.getSummaryAppends() != null && !input.getSummaryAppends().isEmpty())
-              ? Optional.ofNullable(input.getSummaryAppends().get(columnAlpha)).map(val -> " " + val).orElse("")
-              : "";
-          String format = String.format("SUM(%s%d:%s%d)" + valueToAdd, columnAlpha, dataStart, columnAlpha, dataStart + input.getValues().size() - 1);
-          writeFormula(cell, format);
-        }
-      }
-    }
-  }
-
-  private void styleRow(Sheet sheet, Row row) {
-    XlsxRowStyleHelper styleHelper = new XlsxRowStyleHelper(row);
-    org.apache.poi.ss.usermodel.Font font = sheet.getWorkbook().createFont();
-    font.setFontHeightInPoints(DEFAULT_FONT_HEIGHT);
-    font.setFontName(ARIAL_FONT_NAME);
-    styleHelper.withFont(font, 200);
-  }
 
   private void setColorForSingleColumnIfColorPresent(Cell cell, ReportHeader currentHeader) {
     Map<String, Object> properties = new HashMap<>();

@@ -5,7 +5,6 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFColor;
 
 import java.util.List;
-import java.util.Map;
 
 public class XlsxDataInput {
 
@@ -18,8 +17,6 @@ public class XlsxDataInput {
   private final boolean lineBreaks;
   private final int headerHeight;
   private final boolean wrapText;
-  // if field has Header annotation with renderSummary = true
-  private final Map<String, String> summaryAppends;
 
   private XlsxDataInput(Builder builder) {
     this.sheet = builder.sheet;
@@ -31,7 +28,6 @@ public class XlsxDataInput {
     this.lineBreaks = builder.lineBreaks;
     this.headerHeight = builder.headerHeight;
     this.wrapText = builder.wrapText;
-    this.summaryAppends = builder.summaryAppends;
   }
 
   public Sheet getSheet() {
@@ -70,9 +66,6 @@ public class XlsxDataInput {
     return wrapText;
   }
 
-  public Map<String, String> getSummaryAppends() {
-    return summaryAppends;
-  }
 
   public static Builder builder() {
     return new Builder();
@@ -88,7 +81,6 @@ public class XlsxDataInput {
     private boolean lineBreaks;
     private int headerHeight;
     private boolean wrapText;
-    private Map<String, String> summaryAppends;
 
     public Builder sheet(Sheet sheet) {
       this.sheet = sheet;
@@ -135,10 +127,6 @@ public class XlsxDataInput {
       return this;
     }
 
-    public Builder summaryAppends(Map<String, String> summaryAppends) {
-      this.summaryAppends = summaryAppends;
-      return this;
-    }
 
     public XlsxDataInput build() {
       return new XlsxDataInput(this);

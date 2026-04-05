@@ -16,16 +16,13 @@ import static org.apache.poi.ss.usermodel.IndexedColors.GREY_25_PERCENT;
  * widthAsHeaderLength - default implementation of width <br/>
  * widthAsAverageColumnSize - width adjusted by average value length <br/>
  * color - colour of header <br/>
- * forCountry - set field only for adjusted country <br/>
  */
 @Retention(RUNTIME)
 @Target(FIELD)
 public @interface Header {
     String label();
-    boolean renderSummary() default false;
     int widthSize() default -1;
     boolean widthAsHeaderLength() default true;
     boolean widthAsAverageValueLength() default false;
     IndexedColors color() default GREY_25_PERCENT;
-    String[] forCountry() default {};
 }

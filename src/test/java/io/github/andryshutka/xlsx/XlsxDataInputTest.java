@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,8 +32,6 @@ class XlsxDataInputTest {
     void builder_setsAllFields() {
         List<ReportHeader> headers = List.of(ReportHeader.of("Col1", 10));
         List<String> values = List.of("a", "b");
-        Map<String, String> summaryAppends = Map.of("A", "+10");
-
         XlsxDataInput input = XlsxDataInput.builder()
                 .sheet(sheet)
                 .rowPos(3)
@@ -43,7 +40,6 @@ class XlsxDataInputTest {
                 .lineBreaks(true)
                 .headerHeight(30)
                 .wrapText(true)
-                .summaryAppends(summaryAppends)
                 .build();
 
         assertSame(sheet, input.getSheet());
@@ -53,7 +49,6 @@ class XlsxDataInputTest {
         assertTrue(input.isLineBreaks());
         assertEquals(30, input.getHeaderHeight());
         assertTrue(input.isWrapText());
-        assertEquals(summaryAppends, input.getSummaryAppends());
     }
 
     @Test
@@ -70,7 +65,6 @@ class XlsxDataInputTest {
         assertNull(input.getValues());
         assertNull(input.getHeaderColor());
         assertNull(input.getHeaderFont());
-        assertNull(input.getSummaryAppends());
     }
 
     @Test

@@ -79,8 +79,6 @@ Marks a field as a column and configures its header cell.
 | `widthAsHeaderLength`       | `boolean`       | `true`            | Auto-size column to header label length        |
 | `widthAsAverageValueLength` | `boolean`       | `false`           | Auto-size column based on average value length |
 | `color`                     | `IndexedColors` | `GREY_25_PERCENT` | Header cell background color                   |
-| `renderSummary`             | `boolean`       | `false`           | Include this column in summary row             |
-| `forCountry`                | `String[]`      | `{}`              | Render column only for specified country codes |
 
 ```java
 @Header(label = "Revenue", color = IndexedColors.LIGHT_BLUE, widthSize = 20)

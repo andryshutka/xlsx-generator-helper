@@ -6,7 +6,7 @@
 
     <groupId>io.github.andryshutka</groupId>
     <artifactId>xlsx-generator</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>xlsx-generator</name>
@@ -148,6 +148,7 @@
                 <configuration>
                     <publishingServerId>central</publishingServerId>
                     <tokenAuth>true</tokenAuth>
+                    <autoPublish>true</autoPublish>
                 </configuration>
             </plugin>
         </plugins>
