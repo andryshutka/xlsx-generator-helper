@@ -6,12 +6,12 @@
 
     <groupId>io.github.andryshutka</groupId>
     <artifactId>xlsx-generator</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <packaging>jar</packaging>
 
     <name>xlsx-generator</name>
     <description>A Java library for generating XLSX files</description>
-    <url>https://github.com/andryshutka/xlsx-generator</url>
+    <url>https://github.com/andryshutka/xlsx-generator-helper</url>
 
     <licenses>
         <license>
@@ -30,9 +30,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/andryshutka//xlsx-generator-helper.git</connection>
-        <developerConnection>scm:git:ssh://github.com/andryshutka//xlsx-generator-helper.git</developerConnection>
-        <url>https://github.com/andryshutka//xlsx-generator-helper/tree/main</url>
+        <connection>scm:git:git://github.com/andryshutka/xlsx-generator-helper.git</connection>
+        <developerConnection>scm:git:ssh://github.com/andryshutka/xlsx-generator-helper.git</developerConnection>
+        <url>https://github.com/andryshutka/xlsx-generator-helper/tree/main</url>
     </scm>
 
     <properties>
